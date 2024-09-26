@@ -1,33 +1,72 @@
-// Test the main function
+<Docktype html>
+	<html>
+		<head>
+			<title>About</title>
+			<style>
+				body {
+					margin: 0;
+					padding: 0;
+				}
+	
+				header {
+					background-color: #333;
+					color: #fff;
+					padding: 10px 0;
+					text-align: center;
+				}
+	
+				nav ul {
+					list-style-type: none;
+					padding: 0;
+				}
+	
+				nav ul li {
+					display: inline;
+					margin-right: 10px;
+				}
+	
+				nav ul li a {
+					color: #fff;
+					text-decoration: none;
+				}
+	
+				main {
+					padding: 20px;
+				}
+	
+				section {
+					margin-bottom: 20px;
+				}
+	
+				footer {
+					background-color: #333;
+					color: #fff;
+					text-align: center;
+					padding: 10px 0;
+					position: fixed;
+					bottom: 0;
+					width: 100%;
+				}
+			</style>
+		</head>
+		<body>
+			<header>
+				<nav>
+					<ul>
+						<li><a href="home">Home</a></li>
+						<li><a href="about">About</a></li>
+						<li><a href="contact">Contact</a></li>
+						<li><a href="courses">Courses</a></li>
+					</ul>
+				</nav>
+			</header>
+	
+			<main>
+				<section>
+					<h1>About the Author</h1>
+					<p>Hi Everyone, Get lost</p>
+				</section>
+			</main>
 
-package main
-
-import (
-	"net/http"
-	"net/http/httptest"
-	"testing"
-)
-
-func TestMain(t *testing.T) {
-	req, err := http.NewRequest("GET", "/home", nil)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	rr := httptest.NewRecorder()
-	handler := http.HandlerFunc(homePage)
-
-	handler.ServeHTTP(rr, req)
-
-	if status := rr.Code; status != http.StatusOK {
-		t.Errorf("handler returned wrong status code: got %v want %v",
-			status, http.StatusOK)
-	}
-
-	// Just verify the code not html content
-	expected := "text/html; charset=utf-8"
-	if contentType := rr.Header().Get("Content-Type"); contentType != expected {
-		t.Errorf("handler returned unexpected content type: got %v want %v",
-			contentType, expected)
-	}
-}
+		</body>
+	</html>
