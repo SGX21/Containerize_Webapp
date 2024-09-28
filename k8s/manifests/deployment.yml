@@ -10,12 +10,4 @@ spec:
     matchLabels:
       app: containerize_webapp
   template:
-    metadata:
-      labels:
-        app: containerize_webapp
-    spec:
-      containers:
-        - name: containerize-webapp
-          image: sahioro/containerize-webapp:v1
-          ports:
-            - containerPort: 8080
+    metadata: labels:2
